@@ -11,6 +11,7 @@ gem 'hirb'
 gem 'pg', '~> 1.1'
 gem 'pry-rails'
 gem 'puma', '~> 5.0'
+gem 'rack-cors'
 gem 'rails', '~> 6.1.3', '>= 6.1.3.1'
 
 group :development, :test do
