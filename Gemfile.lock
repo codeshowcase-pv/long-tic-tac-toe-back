@@ -70,6 +70,7 @@ GEM
       zeitwerk (~> 2.3)
     ast (2.4.2)
     awesome_print (1.9.2)
+    bcrypt (3.1.16)
     bootsnap (1.7.3)
       msgpack (~> 1.0)
     builder (3.2.4)
@@ -220,6 +221,7 @@ PLATFORMS
 
 DEPENDENCIES
   awesome_print
+  bcrypt
   bootsnap (>= 1.4.4)
   dotenv-rails
   factory_bot_rails
