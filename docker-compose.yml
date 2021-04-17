@@ -1,0 +1,22 @@
+version: '3.9'
+
+services:
+  app:
+    build: .
+    volumes:
+      - .:/long-tic-tac-toe-back
+    command: bash -c "rm -f tmp/pids/server.pid && bundle exec rails s -p 3000 -b 0.0.0.0"
+    ports:
+    - 3000:3000
+
+  db:
+    image: postgres
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: training_ground_dev
+
+  adminer:
+    image: adminer
+    ports:
+    - 8082:8080
