@@ -5,6 +5,6 @@ Rails.application.routes.draw do
     resource :user, only: :show
   end
 
-  get 'login',     to: 'sessions#login'
+  post 'login', to: 'sessions#login'
   delete 'logout', to: 'sessions#logout'
 end

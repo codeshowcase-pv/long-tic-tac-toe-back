@@ -4,6 +4,8 @@ class SessionsController < ApplicationController
   skip_before_action :authenticate_user, only: :login
   skip_before_action :set_csrf_cookie, only: :logout
 
+  protect_from_forgery except: :login
+
   def login
     user = User.find_by(login: params[:login])
 
