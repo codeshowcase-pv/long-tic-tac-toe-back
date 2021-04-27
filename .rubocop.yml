@@ -35,6 +35,9 @@ Layout/LineLength:
   Exclude:
     - '**/config/initializers/devise.rb'
 
+Layout/RedundantLineBreak:
+  Enabled: false
+
 Layout/MultilineAssignmentLayout:
   EnforcedStyle: same_line
 
