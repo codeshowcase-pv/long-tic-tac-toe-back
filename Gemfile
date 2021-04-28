@@ -9,6 +9,7 @@ gem 'bcrypt'
 gem 'bootsnap', '>= 1.4.4', require: false
 gem 'dotenv-rails'
 gem 'hirb'
+gem 'interactor-rails'
 gem 'pg', '~> 1.1'
 gem 'pry-rails'
 gem 'puma', '~> 5.0'
