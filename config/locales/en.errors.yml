@@ -1,0 +1,6 @@
+en:
+  errors:
+    common:
+      not_authorized: Nah man, u r not authorized for this
+    authentication:
+      incorrect_credentials: Login, password or both are incorrect

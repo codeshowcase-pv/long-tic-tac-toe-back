@@ -1,28 +1,16 @@
 # frozen_string_literal: true
 
 class ApplicationController < ActionController::API
-  include ActionController::Cookies
-  include ActionController::RequestForgeryProtection
+  include JWTSessions::RailsAuthorization
+  include ErrorRenderers
 
-  protect_from_forgery with: :exception
+  before_action :authorize_by_access_header!
 
-  before_action :set_csrf_cookie, :authenticate_user
+  rescue_from JWTSessions::Errors::Unauthorized, with: :not_authorized
 
   private
 
-  def set_csrf_cookie
-    cookies['CSRF-TOKEN'] = form_authenticity_token
-  end
-
-  def authenticate_user
-    render_error('Эээээ брат, сначала залогинься да', :forbidden) if session[:user_id].blank?
-  end
-
   def current_user
-    @current_user ||= User.find(session[:user_id])
-  end
-
-  def render_error(text, status)
-    render json: { error: text }, status: status
+    @current_user ||= User.find(payload['user_id'])
   end
 end

@@ -5,6 +5,7 @@ Rails.application.routes.draw do
     resource :user, only: :show
   end
 
-  post 'login', to: 'sessions#login'
-  delete 'logout', to: 'sessions#logout'
+  post   'refresh', to: 'authentication/refresh#create'
+  post   'login',   to: 'authentication/sessions#create'
+  delete 'logout',  to: 'authentication/sessions#destroy'
 end
