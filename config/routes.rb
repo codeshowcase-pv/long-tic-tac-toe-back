@@ -7,4 +7,6 @@ Rails.application.routes.draw do
 
   post 'login', to: 'sessions#login'
   delete 'logout', to: 'sessions#logout'
+
+  resources :games, only: %i[show create]
 end
