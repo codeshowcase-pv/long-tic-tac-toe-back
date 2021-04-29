@@ -7,6 +7,7 @@ class ApplicationController < ActionController::API
   before_action :authorize_by_access_header!
 
   rescue_from JWTSessions::Errors::Unauthorized, with: :not_authorized
+  rescue_from JWTSessions::Errors::Expired, with: :access_token_expired
 
   private
 
