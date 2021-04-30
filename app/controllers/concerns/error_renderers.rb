@@ -9,6 +9,10 @@ module ErrorRenderers
     render json: { code: 'access_token_expired' }, status: :unauthorized
   end
 
+  def refresh_token_expired
+    render json: { code: 'refresh_token_expired' }, status: :unauthorized
+  end
+
   def render_error(text, status)
     render json: { text: text }, status: status
   end

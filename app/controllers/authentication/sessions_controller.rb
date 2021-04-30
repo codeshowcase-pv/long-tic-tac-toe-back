@@ -2,8 +2,7 @@
 
 module Authentication
   class SessionsController < ApplicationController
-    skip_before_action :authorize_by_access_header!
-    before_action :authorize_by_refresh_header!, only: :destroy
+    skip_before_action :authorize_by_access_header!, only: :create
 
     def create
       user = User.find_by(login: params[:login])
@@ -16,8 +15,9 @@ module Authentication
     end
 
     def destroy
-      session = JWTSessions::Session.new
-      session.flush_by_uid(payload['uid'])
+      session = JWTSessions::Session.new(refresh_by_access_allowed: true)
+      session.login
+      session.flush_by_access_payload
     end
   end
 end
