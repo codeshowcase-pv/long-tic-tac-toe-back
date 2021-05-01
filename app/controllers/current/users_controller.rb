@@ -3,7 +3,7 @@
 module Current
   class UsersController < ApplicationController
     def show
-      render json: { message: 'Если вы читаете это, значит вы залогинились' }
+      render json: { message: Time.current }
     end
   end
 end
